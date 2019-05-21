@@ -19,11 +19,12 @@ class Solar {
     _solarYear = v;
   }
 
-  get solarYear => _solarYear;
+  int get solarYear => _solarYear;
 
-  get dateTime => DateTime(_solarYear, solarMonth, solarDay);
+  DateTime get dateTime => DateTime(_solarYear, solarMonth, solarDay);
 
-  toString() {
+  @override
+  String toString() {
     String result = "";
     if (solarYear != null) {
       int absYear = solarYear.abs();

@@ -29,7 +29,8 @@ class Lunar {
 
   int get lunarYear => _lunarYear;
 
-  toString() {
+  @override
+  String toString() {
     String result = "";
     if (lunarYear != null) {
       int year = lunarYear;

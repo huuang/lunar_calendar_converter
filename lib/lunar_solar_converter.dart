@@ -460,18 +460,18 @@ class LunarSolarConverter {
     0x107e48
   ];
 
-  static _getBitInt(int data, int length, int shift) {
+  static int _getBitInt(int data, int length, int shift) {
     return (data & (((1 << length) - 1) << shift)) >> shift;
   }
 
   //早于 1582 年 10 月的日期可能不准确
-  static _solarToInt(int y, int m, int d) {
+  static int _solarToInt(int y, int m, int d) {
     m = (m + 9) % 12;
     y = y - (m / 10).floor();
     return 365 * y + (y / 4).floor() - (y / 100).floor() + (y / 400).floor() + ((m * 306 + 5) / 10).floor() + (d - 1);
   }
 
-  static _solarFromInt(int data) {
+  static Solar _solarFromInt(int data) {
     int y = ((10000 * data + 14780) / 3652425).floor();
     int ddd = data - (365 * y + (y / 4).floor() - (y / 100).floor() + (y / 400).floor());
 
